@@ -1,0 +1,53 @@
+.syntax--cs {
+  &.syntax--source {
+    .syntax--keyword.syntax--operator {
+      color: @syntax-color-keyword;
+      font-style: italic;
+
+      &.syntax--control {
+        color: @syntax-color-function;
+        font-style: normal;
+      }
+
+      &.syntax--assignment {
+        color: @syntax-color-assignment;
+        font-style: normal;
+      }
+
+      &.syntax--other {
+        font-style: normal;
+
+        &.syntax--special-method {
+          color: @hue-2;
+        }
+      }
+
+      &.syntax--other.syntax--unit {
+        color: inherit;
+      }
+    }
+
+    .syntax--meta {
+      color: @syntax-text-color;
+
+      .syntax--method:not(.syntax--body) {
+        color: @syntax-color-method;
+
+        &.syntax--punctuation.syntax--section {
+          color: @syntax-text-color;
+        }
+      }
+    }
+  }
+
+  &.syntax--entity {
+    &.syntax--name.syntax--class,
+    &.syntax--name.syntax--type.syntax--class, &.syntax--other.syntax--inherited-class {
+      color: @syntax-color-highlighted;
+    }
+  }
+
+  &.syntax--meta.syntax--class:not(.syntax--body) {
+    color: @syntax-color-highlighted;
+  }
+}

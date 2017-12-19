@@ -1,0 +1,47 @@
+.syntax--source.syntax--elixir {
+  .syntax--source.syntax--embedded.syntax--source {
+    color: @syntax-text-color;
+  }
+  .syntax--constant.syntax--language,
+  .syntax--constant.syntax--numeric,
+  .syntax--constant.syntax--definition  {
+    color: @syntax-color-numeric;
+  }
+  .syntax--variable.syntax--definition,
+  .syntax--variable.syntax--anonymous{
+    color: @syntax-color-variable;
+  }
+  .syntax--parameter.syntax--variable.syntax--function {
+    color: @syntax-color-function;
+    font-style: italic;
+  }
+  .syntax--quoted{
+    color: @syntax-color-string;
+  }
+  .syntax--keyword.syntax--special-method,
+  .syntax--embedded.syntax--section,
+  .syntax--embedded.syntax--source.syntax--empty,  {
+    color: @syntax-color-keyword;
+  }
+  .syntax--readwrite.syntax--module {
+    .syntax--punctuation {
+      color: @syntax-color-method;
+    }
+  }
+  .syntax--regexp.syntax--section,
+  .syntax--regexp.syntax--string {
+    color: @syntax-color-special;
+  }
+  .syntax--separator,
+  .syntax--keyword.syntax--operator  {
+    color: @syntax-color-operator;
+  }
+  .syntax--variable.syntax--constant {
+    color: @syntax-color-constant;
+  }
+  .syntax--array,
+  .syntax--scope,
+  .syntax--section {
+    color: @syntax-color-import;
+  }
+}

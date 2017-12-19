@@ -1,0 +1,76 @@
+@import "colors.less";
+
+// Official Syntax Variables -----------------------------------
+
+// General colors
+@syntax-text-color:            @syntax-fg;
+@syntax-cursor-color:          lighten(@syntax-accent, 10%);
+@syntax-selection-color:       lighten(@syntax-background-color, 12%);
+@syntax-selection-flash-color: @syntax-accent;
+@syntax-background-color:      @syntax-bg;
+
+// Guide colors
+@syntax-wrap-guide-color:          @syntax-guide;
+@syntax-indent-guide-color:        fade(lighten(@syntax-gutter-background-color, 50%), 6%);
+@syntax-invisible-character-color: @syntax-guide;
+
+// For find and replace markers
+@syntax-result-marker-color:          fade(@syntax-accent, 24%);
+@syntax-result-marker-color-selected: @syntax-accent;
+
+// Gutter colors
+@syntax-gutter-text-color:                fade(@syntax-gutter, 50%);
+@syntax-gutter-text-color-selected:       fade(@syntax-mid, 75%);
+@syntax-gutter-background-color:          darken(@syntax-bg, 0.5%);
+@syntax-gutter-background-color-selected: @syntax-selection-color;
+
+// Git colors - For git diff info. i.e. in the gutter
+@syntax-color-renamed:  hsl(208, 100%, 60%);
+@syntax-color-added:    hsl(150,  60%, 54%);
+@syntax-color-modified: hsl(40,   60%, 70%);
+@syntax-color-removed:  hsl(0,    70%, 60%);
+
+// For language entity colors
+@syntax-color-declaration: @hue-3; //
+@syntax-color-variable:    @hue-2;
+@syntax-color-highlighted: @hue-2-2; //
+@syntax-color-constant:    @hue-1-2;
+
+@syntax-color-numeric:     @hue-1; //
+@syntax-color-string:      @hue-1-2; //
+@syntax-color-special:     @hue-1-3; //
+
+@syntax-color-operator:    @hue-6; //
+@syntax-color-assignment:  @hue-6-2; //
+
+@syntax-color-property:    darken(saturate(@syntax-fg, 20%), 10%);
+@syntax-color-value:       saturate(@syntax-fg, 60%);
+
+@syntax-color-function:    @hue-5;
+@syntax-color-method:      @hue-5;
+@syntax-color-class:       @hue-5-2;
+@syntax-color-builtin:     @hue-5-3; //
+
+@syntax-color-keyword:     @hue-3-2;
+@syntax-color-tag:         @hue-5;
+@syntax-color-id:          @hue-6; //
+@syntax-color-div:         @hue-3; //
+@syntax-color-inline:      @hue-2; //
+@syntax-color-attribute:   @hue-2-2;
+@syntax-color-import:      @hue-4;
+@syntax-color-snippet:     @hue-4-2;
+
+@syntax-color-comment:     fade(@syntax-mid, 80%); //
+
+
+// Custom Syntax Variables -----------------------------------
+// Don't use in packages
+
+@syntax-cursor-fade: true;
+
+@syntax-cursor-line: hsla(@syntax-hue, 100%,  80%, .04); // needs to be semi-transparent to show search results
+
+@syntax-deprecated-fg: darken(@syntax-color-modified, 50%);
+@syntax-deprecated-bg: @syntax-color-modified;
+@syntax-illegal-fg:    white;
+@syntax-illegal-bg:    @syntax-color-removed;

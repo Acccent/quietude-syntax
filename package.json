@@ -1,0 +1,19 @@
+{
+  "name": "quietude-syntax",
+  "theme": "syntax",
+  "version": "0.0.0",
+  "description": "A focus-oriented theme with soft colours and subtle animations",
+  "keywords": [
+    "syntax",
+    "theme",
+    "focus",
+    "quiet",
+    "soft",
+    "dark"
+  ],
+  "repository": "https://github.com/atom/quietude-syntax",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}

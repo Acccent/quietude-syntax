@@ -1,0 +1,45 @@
+.syntax--css {
+  &.syntax--source {
+    // highlight properties/values if they are supported
+    .syntax--property-name, .syntax--separator {
+      color: @syntax-color-property;
+    }
+
+    .syntax--property-value {
+      color: @syntax-color-value;
+    }
+
+    .syntax--operator {
+      color: @syntax-color-operator;
+
+      &.syntax--pattern {
+        color: @syntax-color-declaration;
+      }
+    }
+
+    .syntax--pseudo-class {
+      color: @syntax-color-operator;
+    }
+
+    .syntax--pseudo-element {
+      color: @syntax-color-assignment;
+    }
+  }
+
+  .syntax--attribute-selector {
+    &.syntax--punctuation {
+      color: @syntax-color-declaration;
+    }
+
+    & .syntax--operator {
+      color: @syntax-color-declaration;
+    }
+  }
+  .syntax--definition.syntax--begin + .syntax--attribute-name {
+    color: @syntax-color-declaration;
+  }
+
+  &.syntax--attribute-name ~ .syntax--brace, &.syntax--attribute-name ~ .syntax--bracket.syntax--round {
+    color: @syntax-color-constant;
+  }
+}

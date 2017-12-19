@@ -1,0 +1,131 @@
+// Editor styles (background, gutter, guides)
+
+atom-text-editor {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  & when (@syntax-cursor-fade = true) {
+    transform: perspective(1px) scale(1.00001);
+  }
+
+  .line.cursor-line {
+    background-color: @syntax-cursor-line;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    border-left: 2px solid @syntax-cursor-color;
+
+    & when (@syntax-cursor-fade = true) {
+      transition: opacity 0.2s ease-out;
+    }
+  }
+
+  .cursors.blink-off .cursor when (@syntax-cursor-fade = true) {
+      opacity: 0.1;
+      transition: opacity 0.3s linear;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+
+  .bracket-matcher .region {
+    background-color: fade(@syntax-cursor-color, 15%);
+    border-bottom: 1px solid @syntax-cursor-color;
+    box-sizing: border-box;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+    box-shadow: inset 10px 0 8px -10px;
+
+    & when (@syntax-cursor-fade = true) {
+      transform: perspective(1px) scale(0.99999);
+    }
+
+    &:first-child {
+      color: transparent;
+    }
+  }
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  // find + replace
+  .find-result .region.region.region,
+  .current-result .region.region.region {
+    border-radius: 2px;
+    background-color: @syntax-result-marker-color;
+    transition: border-color .4s;
+  }
+  .find-result .region.region.region {
+    border: 2px solid transparent;
+  }
+  .current-result .region.region.region {
+    border: 2px solid @syntax-result-marker-color-selected;
+    transition-duration: .1s;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+
+    .line-number {
+      color: @syntax-gutter-text-color;
+      border-left: 4px solid transparent;
+      opacity: 1;
+
+      &.cursor-line {
+        color: @syntax-gutter-text-color-selected;
+        border-left-color: @syntax-gutter-background-color-selected;
+      }
+      &.cursor-line-no-selection {
+        border-left-color: transparent;
+      }
+
+      .icon-right {
+        color: @syntax-text-color;
+        visibility: visible;
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+    }
+
+    &:hover .line-number.foldable .icon-right {
+        opacity: 0.3;
+    }
+
+    & .line-number.foldable.folded .icon-right {
+        opacity: 0.5;
+    }
+
+    &:not(.git-diff-icon) .line-number.git-line-removed {
+      &.git-line-removed::before {
+        bottom: -3px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 25px;
+        border-bottom: 1px dotted fade(@syntax-color-removed, 50%);
+        pointer-events: none;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number::after,
+  .fold-marker::after {
+    color: @syntax-gutter-text-color-selected;
+  }
+}
