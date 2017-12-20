@@ -1,24 +1,39 @@
 .syntax--cs {
   &.syntax--source {
-    .syntax--keyword.syntax--operator {
-      color: @syntax-color-keyword;
-      font-style: italic;
+    .syntax--storage {
+      color: @syntax-color-declaration;
+      font-style: normal;
 
+      &.syntax--modifier {
+        color: @syntax-color-builtin;
+        font-style: italic;
+      }
+    }
+
+    .syntax--keyword {
       &.syntax--control {
-        color: @syntax-color-function;
+        color: @syntax-color-special;
         font-style: normal;
       }
 
       &.syntax--assignment {
-        color: @syntax-color-assignment;
-        font-style: normal;
+        color: @syntax-text-color !important;
+        font-style: normal !important;
+      }
+
+      &.syntax--operator {
+        font-style: italic;
       }
 
       &.syntax--other {
-        font-style: normal;
+        color: @syntax-color-operator;
 
         &.syntax--special-method {
-          color: @hue-2;
+          color: @syntax-color-builtin;
+        }
+
+        &.syntax--using {
+          color: @syntax-color-import;
         }
       }
 
@@ -27,8 +42,20 @@
       }
     }
 
+    .syntax--declaration .syntax--keyword {
+      font-style: normal;
+
+      &.syntax--operator {
+        font-style: italic;
+      }
+    }
+
     .syntax--meta {
       color: @syntax-text-color;
+
+      &.syntax--class {
+        color: @syntax-color-declaration;
+      }
 
       .syntax--method:not(.syntax--body) {
         color: @syntax-color-method;
@@ -37,17 +64,29 @@
           color: @syntax-text-color;
         }
       }
+
+      .syntax--function.syntax--declaration, .syntax--method.syntax--declaration {
+        color: @syntax-color-class;
+      }
+
+      &.syntax--annotation {
+        color: @syntax-color-snippet;
+      }
+    }
+
+    .syntax--preprocessor {
+      color: @syntax-color-comment;
     }
   }
 
   &.syntax--entity {
     &.syntax--name.syntax--class,
     &.syntax--name.syntax--type.syntax--class, &.syntax--other.syntax--inherited-class {
-      color: @syntax-color-highlighted;
+      color: @syntax-color-declaration;
     }
   }
 
-  &.syntax--meta.syntax--class:not(.syntax--body) {
+  &.syntax--property > .syntax--name.syntax--function {
     color: @syntax-color-highlighted;
   }
 }

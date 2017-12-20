@@ -1,6 +1,15 @@
-.syntax--css {
+.syntax--css, .syntax--sass {
   &.syntax--source {
-    // highlight properties/values if they are supported
+    .syntax--property-list.syntax--scss {
+      color: @syntax-color-operator;
+
+      .syntax--punctuation {
+        &.syntax--bracket.syntax--curly, &.syntax--terminator {
+          color: @syntax-text-color;
+        }
+      }
+    }
+
     .syntax--property-name, .syntax--separator {
       color: @syntax-color-property;
     }
@@ -24,6 +33,10 @@
     .syntax--pseudo-element {
       color: @syntax-color-assignment;
     }
+
+    .syntax--keyword {
+      font-style: normal;
+    }
   }
 
   .syntax--attribute-selector {
@@ -35,11 +48,16 @@
       color: @syntax-color-declaration;
     }
   }
+
   .syntax--definition.syntax--begin + .syntax--attribute-name {
     color: @syntax-color-declaration;
   }
 
-  &.syntax--attribute-name ~ .syntax--brace, &.syntax--attribute-name ~ .syntax--bracket.syntax--round {
+  &.syntax--attribute-name ~ .syntax--brace, &.syntax--property-value > .syntax--brace:first-child, &.syntax--attribute-name ~ .syntax--bracket.syntax--round {
     color: @syntax-color-constant;
+  }
+
+  .syntax--punctuation.syntax--definition.syntax--sass {
+    color: @syntax-color-special;
   }
 }
