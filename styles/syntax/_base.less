@@ -11,7 +11,7 @@
 
 .syntax--entity {
   &.syntax--name.syntax--type {
-    color: @syntax-color-constant;
+    color: @syntax-color-class;
   }
 
   &.syntax--name.syntax--function {
@@ -91,10 +91,6 @@
     font-style: normal;
   }
 
-  &.syntax--import, &.syntax--using {
-    color: @syntax-color-import;
-  }
-
   &.syntax--other {
     font-style: normal;
 
@@ -105,6 +101,30 @@
 
   &.syntax--other.syntax--unit {
     color: inherit;
+  }
+}
+
+.syntax--import, .syntax--using {
+  color: @syntax-color-import;
+
+  & .syntax--keyword {
+    color: @syntax-color-import;
+  }
+
+  & .syntax--delimiter {
+    color: @syntax-text-color;
+  }
+}
+
+.syntax--export {
+  color: @syntax-color-snippet;
+
+  & .syntax--keyword {
+    color: @syntax-color-snippet;
+  }
+
+  & .syntax--delimiter {
+    color: @syntax-text-color;
   }
 }
 
@@ -163,19 +183,15 @@
   }
 }
 
+.syntax--storage + .syntax--constant, .leading-whitespace + .syntax--constant {
+  color: @syntax-text-color;
+}
+
 .syntax--variable, .syntax--variables {
   color: @syntax-color-variable;
 
-  .syntax--storage + &, .syntax--class + &, .leading-whitespace + &, &.syntax--name {
+  .syntax--storage + &, .syntax--class + &, &.syntax--name {
     color: @syntax-color-highlighted;
-  }
-
-  &:first-child {
-    color: @syntax-color-highlighted;
-
-    .line *:not(:first-child) & {
-      color: @syntax-color-variable;
-    }
   }
 
   &.syntax--interpolation {
@@ -192,6 +208,10 @@
 
   &.syntax--reference {
     color: @syntax-color-constant;
+  }
+
+  &.syntax--delimiter {
+    color: @syntax-color-keyword;
   }
 }
 
@@ -229,6 +249,12 @@
 
 .syntax--punctuation {
   &.syntax--definition {
+
+    &.syntax--parameters,
+    &.syntax--arguments {
+      color: saturate(lighten(@syntax-color-function, 10%), -20%);
+    }
+
     &.syntax--entity {
       color: @syntax-color-declaration;
 
@@ -251,16 +277,23 @@
 
     &.syntax--method-parameters,
     &.syntax--function-parameters,
-    &.syntax--parameters,
     &.syntax--separator,
     &.syntax--seperator,
     &.syntax--array {
       color: @syntax-text-color;
     }
+
+    &.syntax--string {
+      color: @syntax-color-string;
+    }
   }
 
   &.syntax--separator.syntax--key-value {
       color: @syntax-color-assignment;
+  }
+
+  &.syntax--accessor {
+    color: @syntax-color-keyword;
   }
 
   &.syntax--section {
@@ -274,6 +307,11 @@
       color: @syntax-text-color;
     }
   }
+}
+
+.syntax--storage + .syntax--meta > .syntax--definition.syntax--bracket.syntax--round,
+.syntax--arrow > .syntax--meta > .syntax--definition.syntax--bracket.syntax--round {
+  color: @syntax-color-function;
 }
 
 .syntax--support {
@@ -302,10 +340,18 @@
 
   &.syntax--method-call:not(.syntax--body) {
     color: @syntax-text-color;
+
+    &.syntax--delimiter {
+      color: @syntax-color-keyword;
+    }
   }
 
   &.syntax--method:not(.syntax--body)  {
     color: @syntax-color-method;
+
+    &.syntax--delimiter {
+      color: @syntax-color-keyword;
+    }
   }
 
   &.syntax--definition {

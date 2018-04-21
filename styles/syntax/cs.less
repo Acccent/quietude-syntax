@@ -5,7 +5,7 @@
       font-style: normal;
 
       &.syntax--modifier {
-        color: @syntax-color-builtin;
+        color: @syntax-color-constant;
         font-style: italic;
       }
     }
@@ -17,16 +17,14 @@
       }
 
       &.syntax--assignment {
-        color: @syntax-text-color !important;
         font-style: normal !important;
       }
 
-      &.syntax--operator {
-        font-style: italic;
+      &.syntax--type {
+          font-style: normal;
       }
 
       &.syntax--other {
-        color: @syntax-color-operator;
 
         &.syntax--special-method {
           color: @syntax-color-builtin;
@@ -35,6 +33,11 @@
         &.syntax--using {
           color: @syntax-color-import;
         }
+      }
+
+      &.syntax--new {
+        color: @syntax-color-operator;
+        font-style: italic;
       }
 
       &.syntax--other.syntax--unit {
@@ -80,8 +83,8 @@
   }
 
   &.syntax--entity {
-    &.syntax--name.syntax--class,
-    &.syntax--name.syntax--type.syntax--class, &.syntax--other.syntax--inherited-class {
+    &.syntax--name.syntax--type,
+    &.syntax--other.syntax--inherited-class {
       color: @syntax-color-declaration;
     }
   }
