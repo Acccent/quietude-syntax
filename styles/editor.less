@@ -129,3 +129,34 @@ atom-text-editor {
     color: @syntax-gutter-text-color-selected;
   }
 }
+
+// Other editor elements
+
+.settings-view {
+  .config-menu .nav > li {
+    & > a:hover {
+      background-color: lighten(saturate(@syntax-bg, 5%), 10%);
+    }
+
+    &.active > a {
+      background-color: lighten(saturate(@syntax-bg, 10%), 5%);
+    }
+  }
+
+  select.form-control {
+    background-color: #293c54;
+
+    &:hover, &:focus {
+      background-color: #2e435f;
+    }
+  }
+}
+
+.atom-dock-toggle-button .atom-dock-toggle-button-inner {
+  background-color: #182332;
+  border-color: #111a24;
+}
+
+atom-workspace, atom-panel, .tool-panel, .panel {
+  background-color: #182332;
+}
