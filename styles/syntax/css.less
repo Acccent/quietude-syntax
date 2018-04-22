@@ -1,12 +1,8 @@
 .syntax--css, .syntax--sass {
   &.syntax--source {
-    .syntax--property-list.syntax--scss {
-      color: @syntax-color-operator;
-
-      .syntax--punctuation {
-        &.syntax--bracket.syntax--curly, &.syntax--terminator {
-          color: @syntax-text-color;
-        }
+    .syntax--property-list.syntax--scss .syntax--punctuation {
+      &.syntax--bracket.syntax--curly, &.syntax--terminator {
+        color: @syntax-text-color;
       }
     }
 
