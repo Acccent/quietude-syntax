@@ -19,14 +19,14 @@ atom-text-editor {
   .cursor {
     border-left: 2px solid @syntax-cursor-color;
 
-    & when (@syntax-cursor-fade = true) {
-      transition: opacity 0.2s ease-out;
-    }
+    // & when (@syntax-cursor-fade = true) {
+    //   transition: opacity 0.2s ease-out;
+    // }
   }
 
   .cursors.blink-off .cursor when (@syntax-cursor-fade = true) {
       opacity: 0.1;
-      transition: opacity 0.3s linear;
+      // transition: opacity 0.3s linear;
   }
 
   .selection .region {
@@ -65,14 +65,14 @@ atom-text-editor {
   .current-result .region.region.region {
     border-radius: 2px;
     background-color: @syntax-result-marker-color;
-    transition: border-color .4s;
+    // transition: border-color .4s;
   }
   .find-result .region.region.region {
     border: 2px solid transparent;
   }
   .current-result .region.region.region {
     border: 2px solid @syntax-result-marker-color-selected;
-    transition-duration: .1s;
+    // transition-duration: .1s;
   }
 
   .gutter {
@@ -95,7 +95,7 @@ atom-text-editor {
         color: @syntax-text-color;
         visibility: visible;
         opacity: 0;
-        transition: opacity 0.25s;
+        // transition: opacity 0.25s;
       }
     }
 
