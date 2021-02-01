@@ -4,6 +4,11 @@ atom-text-editor {
   background-color: @syntax-background-color;
   color: @syntax-text-color;
 
+  // prevent bg bug in small inputs
+  &.editor.mini > div {
+    background-color: transparent !important;
+  }
+
   & when (@syntax-cursor-fade = true) {
     transform: perspective(1px) scale(1.00001);
   }
@@ -19,14 +24,14 @@ atom-text-editor {
   .cursor {
     border-left: 2px solid @syntax-cursor-color;
 
-    // & when (@syntax-cursor-fade = true) {
-    //   transition: opacity 0.2s ease-out;
-    // }
+    & when (@syntax-cursor-fade = true) {
+      transition: opacity 0.2s ease-out;
+    }
   }
 
   .cursors.blink-off .cursor when (@syntax-cursor-fade = true) {
       opacity: 0.1;
-      // transition: opacity 0.3s linear;
+      transition: opacity 0.3s linear;
   }
 
   .selection .region {
@@ -65,14 +70,14 @@ atom-text-editor {
   .current-result .region.region.region {
     border-radius: 2px;
     background-color: @syntax-result-marker-color;
-    // transition: border-color .4s;
+    transition: border-color .4s;
   }
   .find-result .region.region.region {
     border: 2px solid transparent;
   }
   .current-result .region.region.region {
     border: 2px solid @syntax-result-marker-color-selected;
-    // transition-duration: .1s;
+    transition-duration: .1s;
   }
 
   .gutter {
@@ -95,7 +100,7 @@ atom-text-editor {
         color: @syntax-text-color;
         visibility: visible;
         opacity: 0;
-        // transition: opacity 0.25s;
+        transition: opacity 0.25s;
       }
     }
 
@@ -128,35 +133,4 @@ atom-text-editor {
   .fold-marker::after {
     color: @syntax-gutter-text-color-selected;
   }
-}
-
-// Other editor elements
-
-.settings-view {
-  .config-menu .nav > li {
-    & > a:hover {
-      background-color: lighten(saturate(@syntax-bg, 5%), 10%);
-    }
-
-    &.active > a {
-      background-color: lighten(saturate(@syntax-bg, 10%), 5%);
-    }
-  }
-
-  select.form-control {
-    background-color: #293c54;
-
-    &:hover, &:focus {
-      background-color: #2e435f;
-    }
-  }
-}
-
-.atom-dock-toggle-button .atom-dock-toggle-button-inner {
-  background-color: #182332;
-  border-color: #111a24;
-}
-
-atom-workspace, atom-panel, .tool-panel, .panel {
-  background-color: #182332;
 }
